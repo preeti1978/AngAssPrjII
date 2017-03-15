@@ -1,0 +1,17 @@
+//external json file containing 2 events. It is initially read for display in Dashboard
+[{
+	"name":"Music show",
+	"date":"10-10-2016",
+	"time":"09:00:00",
+	"address":"D22 Hill Colony, River Road",
+	"pin":"765345",
+	"votes":"0"
+},
+{
+	"name":"Classes",
+	"date":"02-20-2016",
+	"time":"12:00:00",
+	"address":"Westside Schhol, Ontario",
+	"pin":"654344",
+	"votes":"0"
+}]

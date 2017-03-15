@@ -1,0 +1,25 @@
+<div style="float:left;width:50%;">
+<table width="80%" border=1 cellpadding="2" cellspacing="2">
+<!--Iterating through the listOfEvents array using ngFor-->
+	<tr *ngFor="let singleEvent of listOfEvents">
+	<!--Displaying each event-->
+		<td>{{singleEvent.name}}, {{singleEvent.date}}, {{singleEvent.time}}, {{singleEvent.address}}, {{singleEvent.pin}}
+		</td>
+		<td>
+		<!--Vote up button for each event-->
+			<button title="Vote Up" (click)="voteUp(singleEvent)"><img src="app/dashboard/thumbsUp.png" width="20px" height="20px"></button>
+			<!--the number of votes is displayed-->
+			<br>{{singleEvent.votes}} votes<br>
+			<!--Vote dpwn button for each event-->
+			<button title="Vote down" (click)="voteDown(singleEvent)"><img src="app/dashboard/thumbsDown.png" width="20px" height="20px"></button>
+		</td>
+	</tr>
+	<tr>
+		<td></td>
+	</tr>
+</table>
+</div>
+<!--Button on click of which the Event component is loaded-->
+<div id="addBtnDiv">
+<button (click)="goToOtherRoute()" width="200px" height="200px"><span style="font-size: 20;font-weight: bolder;font-family: Arial;">Add Event +</span></button>
+</div>

@@ -1,0 +1,53 @@
+<br><br><br>
+	<div  id="formDiv"><!--eventForm is the local template variable-->
+		<form  #eventForm="ngForm" (ngSubmit)="validateMe(eventForm.value)" >
+			<fieldset  id="formFieldSet" style="background-color: black;">
+				<legend>
+					New Event Details
+				</legend>
+				<table id="frmTable" style="line-height: 1.5em;">
+					<tr>
+					<td>Name</td><!--2 way data binding to the event object in model -->
+					<td><input type="text" name="name"  [(ngModel)]="event.name" required>
+					<span *ngIf="nameInvalid">Name must be between 2 and 50 chars</span>
+					</td>
+					</tr>
+					<tr>
+					<td>Date</td>
+					<td><input type="date" placeholder="mm/dd/yyyy"  name="date" [(ngModel)]="event.date" required>
+					<span *ngIf="dateInvalid">Date is invalid. Must be in mm/dd/yyyy format</span>
+					</td>
+					</tr>
+					<tr>
+					<td>Time</td>
+					<td><input type="time" placeholder="--:-- --"  name="time" [(ngModel)]="event.time" required>
+					<span *ngIf="timeInvalid">Time must be in hh:mm:ss format</span>
+					</td>
+					</tr>
+					<tr>
+					<td>Address</td>
+					<td><textarea  name="address" rows="4" cols="50" required  [(ngModel)]="event.address"></textarea>
+					</td>
+					</tr>
+					<tr>
+					<td>City</td>
+					<td><input type="text" name="city"  [(ngModel)]="event.city"  required></td>
+					</tr>
+					<tr>
+					<td>PIN</td>
+					<td><input type="text" name="pin"  [(ngModel)]="event.pin" required>
+					<span *ngIf="pinInvalid">Pin must be 6 characters long</span>
+					</td>
+
+					</tr>
+					<input type="hidden" name="votes" [(ngModel)]="event.votes">
+					<tr>
+					<td colspan="2" align="center">
+					<button type="submit"  [disabled]="eventForm.form.invalid" >save</button>&nbsp;&nbsp;<!--save button is disabled until all mandatory forms are filled-->
+					<button type="reset" (click)="goToDashBoard()">cancel</button><!--clear all fields on click of reset and go to Home page-->
+					</td>
+					</tr>
+				</table>
+			</fieldset>
+		</form>
+	</div>
